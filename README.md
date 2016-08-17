@@ -1,5 +1,5 @@
-awsconfig
-==========
+ushios/awsconfig
+=================
 
 Get aws config from IAMRole or credentials file.
 
