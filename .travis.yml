@@ -9,3 +9,5 @@ before_install:
 script:
   - go test -race -v ./...
   - $HOME/gopath/bin/goveralls -service=travis-ci
+notifications:
+  slack: ushios:CaFrniOgc1P47U9LxvjN05YA
