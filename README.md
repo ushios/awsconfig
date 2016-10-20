@@ -33,5 +33,5 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 )
 
-s3client := s3.New(session.New(awsconfig.Config()))
+s3client := s3.New(session.New(awsconfig.Config(nil)))
 ```
