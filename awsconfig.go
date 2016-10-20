@@ -13,6 +13,12 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
+type (
+	Options struct {
+		Region string
+	}
+)
+
 var (
 	// CredentialFilePath is path to credentials file
 	// See also: http://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-chap-getting-started.html
@@ -62,9 +68,17 @@ func Credentials() *credentials.Credentials {
 }
 
 // Config return aws config
-func Config() *aws.Config {
+func Config(options *Options) *aws.Config {
+	region := Region
+
+	if options != nil {
+		if options.Region != "" {
+			region = options.Region
+		}
+	}
+
 	return &aws.Config{
-		Region:      aws.String(Region),
+		Region:      aws.String(region),
 		Credentials: Credentials(),
 	}
 }
